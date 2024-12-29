@@ -74,7 +74,7 @@ async fn run(cmd: Cmd, hosts: Vec<String>) {
                 let res = job.await.unwrap();
                 results.push(res);
             }
-            println!("{:?}", results);
+            fmt::fmt_fulls(results);
         }
     }
 }
