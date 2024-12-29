@@ -1,4 +1,5 @@
 pub(crate) mod cli;
+pub(crate) mod fmt;
 
 use cli::{cli, Cmd};
 use std::sync::Arc;
@@ -38,7 +39,7 @@ async fn run(cmd: Cmd, hosts: Vec<String>) {
                 let res = job.await.unwrap();
                 results.push(res);
             }
-            println!("{:?}", results);
+            fmt::fmt_info(results);
         }
         Cmd::Players => {
             let mut jobs = vec![];
