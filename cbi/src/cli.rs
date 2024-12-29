@@ -1,9 +1,11 @@
 use clap::{Arg, Command};
 
+#[derive(PartialEq, Eq)]
 pub enum Cmd {
     Info,
     Players,
     Full,
+    Json,
 }
 
 pub fn cli() -> (Cmd, Vec<String>) {
@@ -30,6 +32,7 @@ pub fn cli() -> (Cmd, Vec<String>) {
                 .map(|s| s.to_string())
                 .collect(),
         ),
+        Some(("json", _)) => (Cmd::Json, vec![]),
         _ => panic!("No subcommand was used"),
     }
 }
@@ -57,7 +60,8 @@ pub fn arg_parser() -> Command {
             Command::new("full")
                 .about("merge a2s_info and a2s_players")
                 .arg(arg_hosts.clone()),
-        );
+        )
+        .subcommand(Command::new("json").about("i/o with json via stdio"));
 
     cmd
 }

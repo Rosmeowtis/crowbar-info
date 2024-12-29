@@ -1,5 +1,6 @@
 pub(crate) mod cli;
 pub(crate) mod fmt;
+pub(crate) mod json_loop;
 
 use cli::{cli, Cmd};
 use std::sync::Arc;
@@ -15,7 +16,7 @@ fn main() {
 }
 
 async fn run(cmd: Cmd, hosts: Vec<String>) {
-    if hosts.len() == 0 {
+    if hosts.len() == 0 && cmd != Cmd::Json {
         eprintln!("[cbi Erorr] No hosts specified");
         return;
     }
@@ -75,6 +76,9 @@ async fn run(cmd: Cmd, hosts: Vec<String>) {
                 results.push(res);
             }
             fmt::fmt_fulls(results);
+        }
+        Cmd::Json => {
+            json_loop::main_loop(a2s.clone()).await;
         }
     }
 }

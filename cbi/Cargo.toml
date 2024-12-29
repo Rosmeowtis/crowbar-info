@@ -7,4 +7,8 @@ edition = "2021"
 a2s = { version = "0.5.2", features = ["async", "serialization"] }
 clap = "4.5.23"
 iocraft = "0.5.3"
+serde = { version = "1.0.217", features = ["derive"] }
+serde_json = "1.0.134"
 tokio = { version = "1.42.0", features = ["full", "rt"] }
+
+core = { path = "../core" }
