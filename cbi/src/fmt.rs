@@ -60,23 +60,23 @@ fn InfosTable<'a>(props: &InfosTableProps<'a>) -> impl Into<AnyElement<'a>> {
         ) {
             Box(border_style: BorderStyle::Single, border_edges: Edges::Bottom, border_color: Color::Grey) {
                 Box(width: 10pct, justify_content: JustifyContent::End, padding_right: 2) {
-                    Text(content: "Id", weight: Weight::Bold, decoration: TextDecoration::Underline)
+                    Text(content: "Id")
                 }
 
                 Box(width: 40pct) {
-                    Text(content: "Name", weight: Weight::Bold, decoration: TextDecoration::Underline)
+                    Text(content: "Name")
                 }
 
                 Box(width: 30pct) {
-                    Text(content: "Map", weight: Weight::Bold, decoration: TextDecoration::Underline)
+                    Text(content: "Map")
                 }
 
                 Box(width: 10pct) {
-                    Text(content: "P", weight: Weight::Bold, decoration: TextDecoration::Underline)
+                    Text(content: "P")
                 }
 
                 Box(width: 10pct) {
-                    Text(content: "/MaxP", weight: Weight::Bold, decoration: TextDecoration::Underline)
+                    Text(content: "/MaxP")
                 }
             }
 
@@ -91,15 +91,15 @@ fn InfosTable<'a>(props: &InfosTableProps<'a>) -> impl Into<AnyElement<'a>> {
                     }
 
                     Box(width: 30pct) {
-                        Text(content: info.map.clone(), weight: Weight::Bold, decoration: TextDecoration::Underline)
+                        Text(content: info.map.clone())
                     }
 
                     Box(width: 10pct) {
-                        Text(content: info.players.to_string(), weight: Weight::Bold, decoration: TextDecoration::Underline)
+                        Text(content: info.players.to_string())
                     }
 
                     Box(width: 10pct) {
-                        Text(content: info.max_players.to_string(), weight: Weight::Bold, decoration: TextDecoration::Underline)
+                        Text(content: info.max_players.to_string())
                     }
                 }
             })).into_iter().flatten())
@@ -183,7 +183,7 @@ fn PlayersTable<'a>(props: &PlayersTableProps<'a>) -> impl Into<AnyElement<'a>> 
         ) {
             Box(border_style: BorderStyle::Single, border_edges: Edges::Bottom, border_color: Color::Grey) {
                 Box(width: 10pct, justify_content: JustifyContent::End, padding_right: 2) {
-                    Text(content: "Id", weight: Weight::Bold, decoration: TextDecoration::Underline)
+                    Text(content: "Id")
                 }
 
                 Box(width: 40pct) {
@@ -191,11 +191,11 @@ fn PlayersTable<'a>(props: &PlayersTableProps<'a>) -> impl Into<AnyElement<'a>> 
                 }
 
                 Box(width: 30pct) {
-                    Text(content: "Score", weight: Weight::Bold, decoration: TextDecoration::Underline)
+                    Text(content: "Score")
                 }
 
                 Box(width: 20pct) {
-                    Text(content: "Time", weight: Weight::Bold, decoration: TextDecoration::Underline)
+                    Text(content: "Time")
                 }
             }
 
@@ -206,15 +206,15 @@ fn PlayersTable<'a>(props: &PlayersTableProps<'a>) -> impl Into<AnyElement<'a>> 
                     }
 
                     Box(width: 40pct) {
-                        Text(content: player.name.clone())
+                        Text(content: player.name.clone(), weight: Weight::Bold, decoration: TextDecoration::Underline)
                     }
 
                     Box(width: 30pct) {
-                        Text(content: player.score.to_string(), weight: Weight::Bold, decoration: TextDecoration::Underline)
+                        Text(content: player.score.to_string())
                     }
 
                     Box(width: 20pct) {
-                        Text(content: display_time(player.duration), weight: Weight::Bold, decoration: TextDecoration::Underline)
+                        Text(content: display_time(player.duration))
                     }
                 }
             })).into_iter().flatten())
@@ -274,15 +274,15 @@ fn FullTable<'a>(props: &FullTableProps<'a>) -> impl Into<AnyElement<'a>> {
                         }
 
                         Box(width: 30pct) {
-                            Text(content: info.map.clone(), weight: Weight::Bold, decoration: TextDecoration::Underline)
+                            Text(content: info.map.clone(), weight: Weight::Bold)
                         }
 
                         Box(width: 10pct) {
-                            Text(content: info.players.to_string(), weight: Weight::Bold, decoration: TextDecoration::Underline)
+                            Text(content: info.players.to_string(), weight: Weight::Bold)
                         }
 
                         Box(width: 10pct) {
-                            Text(content: info.max_players.to_string(), weight: Weight::Bold, decoration: TextDecoration::Underline)
+                            Text(content: info.max_players.to_string())
                         }
                     }
                     #(players.into_iter().map(|player| element! {
@@ -296,11 +296,11 @@ fn FullTable<'a>(props: &FullTableProps<'a>) -> impl Into<AnyElement<'a>> {
                             }
 
                             Box(width: 30pct) {
-                                Text(content: player.score.to_string(), weight: Weight::Bold, decoration: TextDecoration::Underline)
+                                Text(content: player.score.to_string())
                             }
 
                             Box(width: 20pct) {
-                                Text(content: display_time(player.duration), weight: Weight::Bold, decoration: TextDecoration::Underline)
+                                Text(content: display_time(player.duration))
                             }
                         }
                     })
