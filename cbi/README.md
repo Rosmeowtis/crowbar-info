@@ -41,6 +41,14 @@ cbi info <host>:<port>
 cbi players <host>:<port>
 ```
 
+如果有保存在文件中的服务器列表，也可以在参数前缀 `@` 符号表示这是一个文件路径：
+
+```sh
+cbi full @servers.txt
+```
+
+`servers.txt` 内每行一条地址，会忽略空行。
+
 ### json 接口
 
 可以通过管道与其他程序交互，其输入输出示例为：

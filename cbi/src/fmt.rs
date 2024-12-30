@@ -305,7 +305,7 @@ fn FullTable<'a>(props: &FullTableProps<'a>) -> impl Into<AnyElement<'a>> {
                         }
                     })
                     )
-                
+
                 }
             })).into_iter().flatten())
         }
